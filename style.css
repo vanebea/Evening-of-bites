@@ -1,0 +1,109 @@
+:root {
+  --pink: #f5c5cc;
+  --black: #0b0b0b;
+  --grey-box: #1e1e1e;
+  --light-text: #f5f5f5;
+  --accent: #d59ff4;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--black);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--light-text);
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 500px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.invite-box,
+.rsvp-box {
+  background-color: var(--grey-box);
+  border: 2px solid var(--pink);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px rgba(245, 197, 204, 0.25);
+}
+
+h1 {
+  color: var(--pink);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #dddddd;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.info-line {
+  font-size: 1rem;
+  margin: 0.4rem 0;
+}
+
+.menu-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.menu-link:hover {
+  color: var(--pink);
+}
+
+.rsvp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: var(--pink);
+  border-bottom: 1px solid var(--pink);
+  padding-bottom: 0.5rem;
+}
+
+.rsvp-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.rsvp-content {
+  display: none;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.rsvp-content p,
+.rsvp-content ul {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.rsvp-content ul {
+  padding-left: 1.2rem;
+}
+
+.rsvp-content li {
+  margin-bottom: 0.4rem;
+}
+
+/* Larger screens */
+@media
