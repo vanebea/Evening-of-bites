@@ -1,171 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>An Evening of Bites</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="style.css" />
-
- <style>
-    :root {
-      --pink: #eec9d2;
-      --beige: #f5efe7;
-      --black: #111;
-      --soft-grey: #f7f7f7;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+<meta charset="UTF-8">
+<title>Thank You for Coming</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
     body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: var(--beige);
-      color: var(--black);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: url("./cheers.png") no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', sans-serif;
     }
 
-    .invite-container {
-      background: white;
-      border: 2px solid var(--pink);
-      border-radius: 16px;
-      max-width: 500px;
-      width: 100%;
-      padding: 2rem;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    .overlay {
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 30px 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        max-width: 90%;
     }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.5rem;
-      color: var(--pink);
-      text-align: center;
-      margin-bottom: 1rem;
+        font-size: 2.5rem;
+        color: #a64d79;
+        margin-bottom: 15px;
     }
 
-    .subtitle {
-      font-size: 1rem;
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #555;
+    p {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 20px;
     }
 
-    .info-line {
-      margin: 0.5rem 0;
-      font-size: 1rem;
-    }
-
-    .menu-link {
-      display: inline-block;
-      background: var(--pink);
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 8px;
-      margin: 1rem 0;
-      text-align: center;
-    }
-
-    .menu-link:hover {
-      background: #d8a6b4;
-    }
-
-    .sms-box {
-      margin-top: 2rem;
-      border: 1px solid var(--pink);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .sms-header {
-      background: var(--pink);
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-      cursor: pointer;
-    }
-
-    .sms-content {
-      padding: 1rem;
-      background: var(--soft-grey);
-      display: none;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 1rem;
-    }
-
-    ul li {
-      padding: 0.2rem 0;
-    }
-
-    @media screen and (max-width: 500px) {
-      .invite-container {
-        padding: 1.5rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .menu-link {
+    audio {
         width: 100%;
-      }
+        margin-top: 15px;
     }
-  </style>
+</style>
 </head>
 <body>
-  <div class="invite-container">
-    <h1>An Evening of Bites</h1>
-    <p class="subtitle">You’re invited to an evening of Cocktails, Conversations, and Company</p>
 
-    <p class="info-line">📅 <b>Date:</b> Friday, August 8th</p>
-    <p class="info-line">🕰️ <b>Time:</b> 6:00 PM – 9:00 PM</p>
-    <p class="info-line">📍 <b>Venue:</b> Cafe Amka</p>
+<div class="overlay">
+    <h1>Thank You for Coming!💖</h1>
+    <p>I deeply appreciate each of you for sparing your precious family time to enjoy some evening bites with me at the café. 
+       <br><br>Your presence meant so much, and I’m truly grateful. Wishing you blessings and a peaceful night/morning. ✨✨</p>
 
-    <a class="menu-link" href="https://cafeamka.co.ke/shop/" target="_blank">View Menu</a>
+    <!-- Audio autoplay fix -->
+    <audio id="bg-music" controls loop>
+        <source src="./pawa.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
 
-    <p class="info-line">👗 <b>Dress code:</b> All black ⚫️</p>
+<script>
+    // Attempt to autoplay after user interacts (browsers block autoplay without interaction)
+    window.addEventListener('click', () => {
+        const music = document.getElementById('bg-music');
+        music.play().catch(err => console.log('Autoplay blocked:', err));
+    });
+</script>
 
-    <div class="sms-box">
-      <div class="sms-header" onclick="toggleSmsBox()">
-        <h3>✨ RSVP via SMS</h3>
-        <div id="toggle-icon">⬇️</div>
-      </div>
-      <div class="sms-content" id="smsContent">
-        <p>Text: <a href="sms:0795501558">0795 501 558</a></p>
-        <p>Please reply with:</p>
-        <ul>
-          <li>✓ – Yes, I'm coming</li>
-          <li>— – Maybe</li>
-          <li>❌ – Can't make it</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function toggleSmsBox() {
-      const content = document.getElementById("smsContent");
-      const icon = document.getElementById("toggle-icon");
-      if (content.style.display === "none" || content.style.display === "") {
-        content.style.display = "block";
-        icon.textContent = "⬆️";
-      } else {
-        content.style.display = "none";
-        icon.textContent = "⬇️";
-      }
-    }
-  </script>
 </body>
 </html>
